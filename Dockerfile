@@ -1,5 +1,5 @@
-FROM java:8
-COPY . /
-WORKDIR /
-RUN javac Connect.java
-CMD ["java", "-classpath","mysql-connector-java-8.0.12.jar:.","Connect"]
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y apache2
+EXPOSE 80
+CMD ["/usr/sbin/apache2ctl","-D", "FOREGROUND"]
